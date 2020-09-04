@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div className="flex">
+        <input type="text" className="form-control" name="userid" onChange={ChangeHandler} value={post.uni_name}>
+        </input>
+        <input type="text" className="form-control" name="userid" onChange={ChangeHandler}
+            value={post.Registration_date.slice(0, 10) || "" }>
+        </input>
+        <input type="text" className="form-control" name="userid" onChange={ChangeHandler}
+            value={post.Expiry_date.slice(0, 10)}>
+        </input>
+        <input type="text" className="form-control" name="userid" value={post.no_of_students} onChange={ChangeHandler}>
+        </input>
+        <input type="text" className="form-control" name="userid" value={post.email} onChange={ChangeHandler}>
+        </input>
+        <input type="text" className="form-control" name="userid" value={post.web_url} onChange={ChangeHandler}>
+        </input>
+        <input type="text" className="form-control" name="userid" value={post.contact_no} onChange={ChangeHandler}>
+        </input>
+        <button className="btn" name={post.uid}>Edit</button>
+        <button className="btn" name={post.uid} onClick={postDelete}>Delete</button>
+    </div>
+</body>
+
+</html>
