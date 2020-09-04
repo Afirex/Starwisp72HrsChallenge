@@ -6,13 +6,13 @@ const Pagination = ({ postperpage, totalPost, paginate }) => {
     return <div>
         <nav> <ul className="pagination">
             <li key={1} className="page-item">
-                <a href="!#" onClick={() => paginate(2)} className="page-link"> prev </a>
+                <a onClick={() => paginate(2)} className="page-link"> prev </a>
             </li>
             <li key={2} className="page-item">
-                <a href="!#" onClick={() => paginate(1)} className="page-link"> next </a>
+                <a onClick={() => paginate(1)} className="page-link"> next </a>
             </li>
         </ul></nav>
-        <a href="/" className="btn">Update records</a>
+        <a className="btn">Update Connection</a>
     </div>
 
 }

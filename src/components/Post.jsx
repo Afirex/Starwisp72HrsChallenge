@@ -25,7 +25,7 @@ const Posts = ({ posts, loading, fetchpost }) => {
 
     function postDelete(evt) {
         const id = evt.target.name;
-        console.log(id);
+        // console.log(id);
         dataset({ uid: id });
         axios({
             url: '/delete',
@@ -106,7 +106,7 @@ const Posts = ({ posts, loading, fetchpost }) => {
     }
     function Edit() {
         return <div className='box2'>
-            <h4 className="colortits">Fill only columns to be updated</h4><br />
+            <h4 className="colortits">only Fill columns to be updated, Rest Leave empty</h4><br />
             <label>College Name:<input type="text" className="form-control pads" name="uni_name" onChange={handleChange}>
             </input></label>
             <label>Registration_date<input type="text" className="form-control" name="Registration_date" onChange={handleChange}>
@@ -126,7 +126,7 @@ const Posts = ({ posts, loading, fetchpost }) => {
     function ChangeHandler() { }
     return <div><div className="flex">
         {rends()}</div>
-        {visible ? Edit() : console.log(visible)}
+        {visible ? Edit() : null}
     </div>;
 }
 

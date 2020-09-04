@@ -36,9 +36,9 @@ function Body(props) {
         }
     }
     const [visible, setvisible] = useState(false);
-    const [visibleView, setvisibleView] = useState(true);
+    const [visibleView, setvisibleView] = useState(false);
     function rends() {
-        console.log('inside rends');
+        // console.log('inside rends');
         return <div><Post posts={currentPost} loading={loading} fetchpost={fetchpost} />
             <Pagination postperpage={postperpage} totalPost={posts.length} paginate={paginate} />
         </div>;
@@ -56,7 +56,7 @@ function Body(props) {
     function handleChange(evt) {
         const { name, value } = evt.target;
         setUpdate((prev) => ({ ...prev, [name]: value }));
-        console.log(adddata);
+        // console.log(adddata);
     }
     function submitUpdate(evt) {
         axios({
@@ -105,11 +105,11 @@ function Body(props) {
         <nav className="navbar navbar-inverse navbar-fixed-top">
             <div className="container-fluid">
                 <div className="navbar-header">
-                    <a className="navbar-brand" href="#">Starwisp Afirex   </a>
+                    <a className="navbar-brand" href="http://lifeisgta.ga" target="blank">Starwisp Afirex   </a>
                 </div>
                 <ul className="nav navbar-nav">
-                    <li><a href="!#" onClick={() => setvisible(!visible)}>Add</a></li>
-                    <li><a href="!#" onClick={() => setvisibleView(!visibleView)}>View</a></li>
+                    <li onClick={() => setvisible(!visible)}><a>Add</a></li>
+                    <li onClick={() => setvisibleView(!visibleView)}><a>View</a></li>
                 </ul>
                 <ul>
                     <h5 className="logout"><a href="/" onClick={props.setlogout}>logout</a></h5>

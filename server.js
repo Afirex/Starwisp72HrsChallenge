@@ -27,7 +27,7 @@ const qry = "select * from " + 'user_id';
 
 conn.query(qry, function (err, rows, fields) {
   if (err) throw err;
-  console.log(rows); console.log(rows.length);
+  // console.log(rows); console.log(rows.length);
 });
 
 // app.use(express.static(__dirname));
@@ -41,13 +41,13 @@ app.get('/university', function (req, res) {
   conn.query(srch, function (err, rows, f) {
     if (err) { throw err; }
     else {
-      console.log(rows);
+      // console.log(rows);
       res.json(rows);
     }
   });
 });
 app.post('/update', function (req, res) {
-  console.log("inside sever" + req.body.uid + req.body.data.uni_name);
+  // console.log("inside sever" + req.body.uid + req.body.data.uni_name);
   const uid = req.body.uid;
   const uniname = req.body.data.uni_name;
   const registrationdate = req.body.data.Registration_date;
@@ -67,12 +67,12 @@ app.post('/update', function (req, res) {
   if (weburl != '') { if (flag === 1) { qry += "," } qry += " web_url='" + weburl + "'"; flag = 1; }
   if (contact != '') { if (flag === 1) { qry += "," } qry += " contact_no='" + contact + "'"; flag = 1; }
   qry += " where uid=" + uid;
-  console.log("query: " + qry);
+  //console.log("query: " + qry);
 
   conn.query(qry, function (err, rows, fields) {
     if (err) { throw err; }
     else {
-      console.log(rows);
+      //console.log(rows);
       if (rows.length > 0) {
         found = 'found'; console.log(rows.length);
         res.json({ msg: "Updated value" });
@@ -86,7 +86,7 @@ app.post('/update', function (req, res) {
 });
 
 app.post("/add", function (req, res) {
-  console.log(req.body.adddata);
+  //console.log(req.body.adddata);
   const data = req.body.adddata;
   const uniname = data.uni_name;
   const registrationdate = data.Registration_date;
@@ -115,27 +115,35 @@ app.post("/add", function (req, res) {
 
   var values = " VALUES" + "(" + vals + ")";
   qry += cols + values;
-  console.log(qry);
+  // console.log(qry);
   conn.query(qry, function (err, rows, fields) {
     if (err) { throw err; }
     else {
-      console.log(rows);
+      //console.log(rows);
       let found = 'saved';
       res.json({ msg: found });
     }
   });
 });
-
+var loggedin = false;
+app.get("/save", function (req, res) {
+  //console.log(loggedin);
+  res.json({ msg: loggedin });
+});
+app.post("/logout", function (req, res) {
+  loggedin = false;
+});
 app.post('/save', function (req, res) {
   const srch = "select * from user_id where userid = '" + req.body.userid + "' and password='" + req.body.password + "'";
   let found = 'notfound';
   conn.query(srch, function (err, rows, fields) {
     if (err) { throw err; }
     else {
-      console.log(rows);
+      // console.log(rows);
       if (rows.length > 0) {
-        found = 'found'; console.log(rows.length);
+        found = 'found'; //console.log(rows.length);
         res.json({ msg: found });
+        loggedin = true; //console.log("server" + loggedin);
       }
       else {
         res.json({ msg: found });
@@ -145,7 +153,7 @@ app.post('/save', function (req, res) {
 });
 
 app.post('/delete', function (req, res) {
-  console.log(req.body);
+  // console.log(req.body);
   const del = "DELETE FROM uni_details WHERE uid=" + req.body.uid;
   let found = 'notfound';
   conn.query(del, function (err, rows, fields) {
