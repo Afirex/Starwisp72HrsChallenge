@@ -1,19 +1,21 @@
 const express = require('express');
 // const favicon = require('express-favicon');
-// const path = require('path');
+const path = require('path');
 const port = process.env.PORT || 5000;
 const app = express();
 // app.use(favicon(__dirname + '/build/favicon.ico'));
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, 'build')));
 
 
 const mariadb = require('mariadb/callback');
 const conn = mariadb.createConnection({
   host: '127.0.0.1',
-  user: 'root',
-  password: '@$Aftab123',
+  user: 'USER_DB_NAME_ROOT',
+  password: 'YOUR_DB_PASSWORD',
   database: 'test'
 });
 conn.connect(err => {
@@ -30,11 +32,9 @@ conn.query(qry, function (err, rows, fields) {
   // console.log(rows); console.log(rows.length);
 });
 
-// app.use(express.static(__dirname));
-// app.use(express.static(path.join(__dirname, 'build')));
-// app.get('/ping', function (req, res) {
-//   return res.send('pong');
-// });
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'))
+})
 
 app.get('/university', function (req, res) {
   const srch = "select * from uni_details";

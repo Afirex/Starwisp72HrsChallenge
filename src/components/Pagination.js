@@ -12,7 +12,7 @@ const Pagination = ({ postperpage, totalPost, paginate }) => {
                 <a onClick={() => paginate(1)} className="page-link"> next </a>
             </li>
         </ul></nav>
-        <a className="btn">Update Connection</a>
+        <a href="/" className="btn">Update Connection</a>
     </div>
 
 }
