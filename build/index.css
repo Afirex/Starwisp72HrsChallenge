@@ -1,0 +1,126 @@
+.box{
+    box-shadow: 1px 1px 5px 1px #fff;
+    width : 60%;
+    height: 60%;
+    margin: auto;
+    margin-top: 10%;
+    padding: 80px;
+    padding-left: 120px;
+    padding-right: 120px;
+    border-radius: 15px;
+    z-index: 1;
+    background-color: #1111119a;
+    
+  transition: ease-in 2s;
+}
+body{
+    background-color: rgb(1, 14, 14);
+}
+svg{
+  position: absolute;
+  background-color: #1a1a1a11;
+  top:0;
+  left:0;
+  z-index: -1;
+  height: 200%;
+}
+.colortits{
+   color: #fff;
+}* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box !important;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+	background: linear-gradient(-45deg, #1f1f1f 50% , #ffffb4aa 50%);
+	background-size: 300% 300%;
+  animation: gradient 8s ease-out infinite;
+}
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+.logout{
+float: right;
+padding: 1px;
+text-decoration: none;
+color: #fff;
+margin-top:8px;
+}
+.logout a:link, a:visited {
+  background-color: #f44336;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 10px;
+}
+.logout a:hover, a:active {
+  background-color: red;
+}
+.pads{
+  padding: 26px;
+}	
+.flex{
+  display: flex;
+  padding: 8px;
+}
+.box2{
+    box-shadow: 1px 1px 5px 1px #fff;
+    width : 80%;
+    height: 60%;
+    margin: auto;
+    margin-top: 10%;
+    padding: 20px;
+    border-radius: 25px;
+    z-index: 1;
+    background-color: #1111119a;
+    
+  transition: ease-in 2s;
+}
+.btn{
+padding: 1px;
+text-decoration: none;
+color: #fff;
+padding: 2px;
+background-color: teal; margin-right: 2px;
+margin-left: 2px;
+}
+label{ color: #ffaffd;}
+.box3{
+    box-shadow: 1px 1px 5px 1px #fff;
+    width : 60%;
+    height: 60%;
+    margin: auto;
+    margin-top: 3px;
+    margin-bottom: 10%;
+    padding: 10px;
+    border-radius: 25px;
+    z-index: 1;
+    background-color: #1111119a;
+    
+  transition: ease-in 2s;
+} .box3 label{ color: #1FFFfd;}
+footer{
+  color: #12ffff;
+  padding: 15px;
+  transition: ease-in 2s;
+}
+.logo{
+  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 20px; margin-bottom: 20px;
+  color: #5dffb3;
+}
