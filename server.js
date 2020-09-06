@@ -14,9 +14,9 @@ app.use(express.static(path.join(__dirname, 'build')));
 const mariadb = require('mariadb/callback');
 const conn = mariadb.createConnection({
   host: '127.0.0.1',
-  user: 'USER_DB_NAME_ROOT',
-  password: 'YOUR_DB_PASSWORD',
-  database: 'test'
+  user: '',
+  password: '',
+  database: ''
 });
 conn.connect(err => {
   if (err) {
@@ -60,8 +60,8 @@ app.post('/update', function (req, res) {
   var qry = "UPDATE uni_details SET ";
   var flag = 0;
   if (uniname != '') { qry += " uni_name='" + uniname + "'"; flag = 1; }
-  if (registrationdate != '') { if (flag === 1) { qry += " ," } qry += " Registration_date=" + registrationdate; flag = 1; }
-  if (expiry != '') { if (flag === 1) { qry += " ," } qry += " Expiry_date=" + expiry; flag = 1 }
+  if (registrationdate != '') { if (flag === 1) { qry += " ," } qry += " Registration_date='" + registrationdate + "'"; flag = 1; }
+  if (expiry != '') { if (flag === 1) { qry += " ," } qry += " Expiry_date='" + expiry + "'"; flag = 1 }
   if (studs != '') { if (flag === 1) { qry += " ," } qry += " no_of_students=" + studs; flag = 1; }
   if (email != '') { if (flag === 1) { qry += "," } qry += " email='" + email + "'"; flag = 1; }
   if (weburl != '') { if (flag === 1) { qry += "," } qry += " web_url='" + weburl + "'"; flag = 1; }
